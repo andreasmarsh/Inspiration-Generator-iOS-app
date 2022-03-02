@@ -10,6 +10,7 @@ import SwiftUI
 struct Generator: View {
     /*@State var jsonURL = "https://images.metmuseum.org/CRDImages/ad/original/144703.jpg"*/
     @State var image = "1"
+    @State var number = 1
     @State var medium = "this medium"
     
     var body: some View {
@@ -42,8 +43,13 @@ struct Generator: View {
                     }
                     
                     Button(action: {
-                        image = String(Int.random(in: 1...30))
-                        let num = Int.random(in: 1...5)
+                        var num = Int.random(in: 1...30)
+                        while (number == num) {
+                            num = Int.random(in: 1...30)
+                        }
+                        number = num
+                        image = String(num)
+                        num = Int.random(in: 1...5)
                         if (num == 1) {
                             medium = "pencil"
                         } else if (num == 2) {
@@ -66,8 +72,13 @@ struct Generator: View {
                     
                     HStack (alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
                         Button(action: {
-                            image = String(Int.random(in: 1...15))
-                            let num = Int.random(in: 1...5)
+                            var num = Int.random(in: 1...15)
+                            while (number == num) {
+                                num = Int.random(in: 1...15)
+                            }
+                            number = num
+                            image = String(num)
+                            num = Int.random(in: 1...5)
                             if (num == 1) {
                                 medium = "pencil"
                             } else if (num == 2) {
@@ -89,8 +100,13 @@ struct Generator: View {
                         }).buttonStyle(AndreStyle())
                         
                         Button(action: {
-                            image = String(Int.random(in: 16...30))
-                            let num = Int.random(in: 1...5)
+                            var num = Int.random(in: 16...30)
+                            while (number == num) {
+                                num = Int.random(in: 16...30)
+                            }
+                            number = num
+                            image = String(num)
+                            num = Int.random(in: 1...5)
                             if (num == 1) {
                                 medium = "pencil"
                             } else if (num == 2) {
